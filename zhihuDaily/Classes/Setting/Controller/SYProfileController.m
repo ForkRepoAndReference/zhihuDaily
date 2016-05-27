@@ -6,24 +6,25 @@
 //  Copyright © 2016年 yang. All rights reserved.
 //
 
+#import "MBProgressHUD+YS.h"
+#import "SYAccount.h"
 #import "SYProfileController.h"
 #import "UIImageView+WebCache.h"
-#import "SYAccount.h"
-#import "MBProgressHUD+YS.h"
 
 @interface SYProfileController ()
-@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView* avatarImageView;
+@property (weak, nonatomic) IBOutlet UILabel* nameLabel;
 
 @end
 
 @implementation SYProfileController
 #pragma mark life cycle
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
+
     self.title = @"关于我";
-    
+
     self.avatarImageView.layer.cornerRadius = 40;
     self.avatarImageView.clipsToBounds = YES;
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:kAccount.avatar]];
@@ -31,8 +32,9 @@
 }
 
 #pragma mark event handler
-- (IBAction)logout:(UIButton *)sender {
-    SYAccount *account = [SYAccount sharedAccount];
+- (IBAction)logout:(UIButton*)sender
+{
+    SYAccount* account = [SYAccount sharedAccount];
     [account logout];
     sender.enabled = NO;
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:kAccount.avatar]];
@@ -40,7 +42,8 @@
     [MBProgressHUD showSuccess:@"已经退出"];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

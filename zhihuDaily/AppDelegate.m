@@ -13,7 +13,6 @@
 #import "SYLeftDrawerController.h"
 #import "MMDrawerController.h"
 #import "SYMainViewController.h"
-#import "SYDemoViewController.h"
 #import "SYHomeController.h"
 
 #import "SYLaunchController.h"
